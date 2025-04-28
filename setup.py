@@ -119,8 +119,9 @@ setup(
     author_email='mwiechmann@techfak.uni-bielefeld.de',
     url='https://opensource.cit-ec.de/projects/citk/repository/citkat',
     install_requires=[
-        'flask>=1.0.2',
+        'flask>=1.0.2, <3.0.0',
         'flask_restful>=0.3.6',
+        'Frozen-Flask',
         'lxml>=4.2.1',
         'markdown>=2.6.11',
     ],
@@ -136,6 +137,8 @@ setup(
     entry_points={
         'console_scripts': [
             'citkat = citkat.__init__:develop',
+            'citkat-freeze-debug = citkat.freezer:debug',
+            'citkat-freeze = citkat.freezer:freeze',
         ],
     },
     license='GPL',

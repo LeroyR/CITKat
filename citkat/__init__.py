@@ -12,7 +12,6 @@ from citkat.modules.static_xml import static_xml_blueprint
 from citkat.modules.gen_menu_items import gen_menu_items_blueprint
 from citkat.modules.librejs import librejs_blueprint
 
-
 citkat = Flask(__name__, static_url_path='/static')
 
 if 'CONTENT_PATH' in environ:
@@ -81,3 +80,5 @@ def develop():
     # for developer preview of CITKat content, disable all caching
     citkat.config['no-caching'] = True
     citkat.run(host='localhost')  # bind to localhost
+
+

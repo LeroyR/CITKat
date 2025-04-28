@@ -3,6 +3,7 @@ node_modules/
 /.idea
 .vscode/
 licenses.json
+.venv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -74,3 +75,5 @@ docs/_build/
 
 
 .eslintrc.json
+
+public

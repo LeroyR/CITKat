@@ -44,9 +44,10 @@ titles = {
 
 
 # TODO: pagenation, images?
-@browse_blueprint.route('/<path:entity>')
+@browse_blueprint.route('/<path:entity>/')
 def browse(entity):
-    title = 'Browse ' + titles[entity[:-1]]
+    #title = 'Browse ' + titles[entity[:-1]]
+    title = 'Browse ' + titles[entity.split('/')[0]]
     listing = dict()
     b = Browse()
     for itm in glob(safe_join(current_app.config['catalog-directory'], entity, '*.xml')):
