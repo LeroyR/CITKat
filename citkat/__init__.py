@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, redirect, render_template
 from os import environ, getcwd
+from flask import url_for
 
 from citkat.modules.browse import browse_blueprint
 from citkat.modules.backlinks import backlinks_blueprint
@@ -12,7 +13,7 @@ from citkat.modules.static_xml import static_xml_blueprint
 from citkat.modules.gen_menu_items import gen_menu_items_blueprint
 from citkat.modules.librejs import librejs_blueprint
 
-citkat = Flask(__name__, static_url_path='/static')
+citkat = Flask(__name__)
 
 if 'CONTENT_PATH' in environ:
     citkat.config['content-directory'] = environ['CONTENT_PATH']
