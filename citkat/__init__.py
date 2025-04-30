@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, redirect, render_template
-from os import environ, getcwd
+from os import environ, getcwd, path
 from flask import url_for
+from pathlib import Path
 
 from citkat.modules.browse import browse_blueprint
 from citkat.modules.backlinks import backlinks_blueprint
@@ -19,7 +20,8 @@ if 'CONTENT_PATH' in environ:
     citkat.config['content-directory'] = environ['CONTENT_PATH']
 
 if 'CATALOG_PATH' in environ:
-    citkat.config['catalog-directory'] = environ['CATALOG_PATH']
+    path = path.abspath(environ['CATALOG_PATH'])
+    citkat.config['catalog-directory'] = path
 else:
     citkat.config['catalog-directory'] = getcwd()
 
